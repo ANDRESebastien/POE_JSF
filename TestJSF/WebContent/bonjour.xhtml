@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Premier exemple JSF 2.0</title>
+</h:head>
+<h:body>
+	<h1>Premier exemple JSF 2.0 - bonjou212r.xhtml</h1>
+	<h:form>
+		<p>
+			<h:outputLabel value="Nom : " />
+			<h:inputText id="nom" label="nom" value="#{bonjourBean.nom}"
+				required="true" binding="#{nomBinding}">
+				<f:validator validatorId="nomValidator" />
+			</h:inputText>
+			<h:message for="nom" />
+		</p>
+
+		<p>
+			<h:outputLabel value="Prénom : " />
+			<h:inputText id="prenom" label="prenom" value="#{bonjourBean.prenom}"
+				required="true">
+				<f:attribute name="attributNom" value="#{nomBinding}" />
+				<f:validator validatorId="prenomValidator" />
+				<f:validator validatorId="nomPrenomValidator" />
+			</h:inputText>
+			<h:message for="prenom" />
+		</p>
+
+		<p>
+			<h:message globalOnly="true" />
+		</p>
+
+		<p>
+			<h:commandButton id="valider" label="boutton valider" value="Valider"
+				action="bienvenue">
+			</h:commandButton>
+		</p>
+	</h:form>
+</h:body>
+</html>
