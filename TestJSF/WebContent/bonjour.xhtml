@@ -6,8 +6,8 @@
 	<title>Premier exemple JSF 2.0</title>
 </h:head>
 <h:body>
-	<h1>Premier exemple JSF 2.0 - bonjou212r.xhtml</h1>
-	<h:form>
+	<h1>Premier exemple JSF 2.0 - bonjour.xhtml</h1>
+	<h:form id="form">
 		<p>
 			<h:outputLabel value="Nom : " />
 			<h:inputText id="nom" label="nom" value="#{bonjourBean.nom}"
@@ -21,15 +21,15 @@
 			<h:outputLabel value="Prénom : " />
 			<h:inputText id="prenom" label="prenom" value="#{bonjourBean.prenom}"
 				required="true">
-				<f:attribute name="attributNom" value="#{nomBinding}" />
 				<f:validator validatorId="prenomValidator" />
 				<f:validator validatorId="nomPrenomValidator" />
+				<f:attribute name="attributNom" value="#{nomBinding}" />
 			</h:inputText>
 			<h:message for="prenom" />
 		</p>
 
 		<p>
-			<h:message globalOnly="true" />
+			<h:message for="nomPrenom" id="nomPrenom" />
 		</p>
 
 		<p>

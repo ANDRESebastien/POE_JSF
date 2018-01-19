@@ -21,8 +21,10 @@ public class NomPrenomValidator implements Validator {
 		System.out.println(" >>> Classe NomPrenomValidator : procédure validate() = " + nom + prenom);
 
 		if (prenom.equals(nom)) {
-			throw new ValidatorException(new FacesMessage(FacesMessage.SEVERITY_ERROR, null,
-					"Le nom et prénom doivent être différent."));
+			javax.faces.context.FacesContext.getCurrentInstance().addMessage("form:nomPrenom",
+					new FacesMessage("Le nom et prénom doivent être différent."));
+
+			throw new ValidatorException(new FacesMessage(FacesMessage.SEVERITY_ERROR, null, null));
 		}
 	}
 }
